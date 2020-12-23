@@ -1,0 +1,23 @@
+{
+  "name": "pakige.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zubairkhan1234/login-and-sign-up-with-herokku-host.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zubairkhan1234/login-and-sign-up-with-herokku-host/issues"
+  },
+  "homepage": "https://github.com/zubairkhan1234/login-and-sign-up-with-herokku-host#readme",
+  "dependencies": {
+    "pakage": "^1.0.0"
+  }
+}
