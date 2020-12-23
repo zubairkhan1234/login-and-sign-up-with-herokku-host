@@ -1,22 +1,21 @@
 
+
 function signup() {
 
-    var username = document.getElementById("username`").value
+    var username = document.getElementById("name").value
     var email = document.getElementById("email").value
-    var phone = document.getElementById("phone").value
+    var phone =  document.getElementById("phone").value
     var password = document.getElementById("password").value
 
-    user = {
-        userName: username,
-        email: email,
-        phone: phone,
-        password: password
-    }
-
-    console.log(user)
+    user =({ userName: username,  email: email, phone: phone, password: password})
+    document.getElementById("name").value = ""
+    document.getElementById("email").value = ""
+    document.getElementById("phone").value = ""
+    document.getElementById("password").value = ""
+    // console.log(user)
 
     const Http = new XMLHttpRequest();
-    const url = 'http://localhost:3000';
+    const url = 'http://localhost:3000/signUp';
     Http.open("POST", url);
     Http.setRequestHeader("content-type", "application/json")
     Http.send(JSON.stringify(user));
@@ -24,6 +23,7 @@ function signup() {
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText)
         alert(Http.responseText)
+        // Document.getElementById("result").innerHTML = Http.responseText
     }
 
     return false;
