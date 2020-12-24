@@ -10,6 +10,7 @@ var users = [
 
 var express = require("express");
 var bodyParser = require("body-parser");
+const PORT = process.env.PORT || 5000
 var morgan = require("morgan");
 var cors = require("cors");
 
@@ -85,6 +86,6 @@ app.post("/login", (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("server is running on port 3000")
 })
