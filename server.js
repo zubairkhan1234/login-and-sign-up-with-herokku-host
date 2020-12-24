@@ -9,15 +9,17 @@ var users = [
 ]
 
 var express = require("express");
-const PORT = process.env.PORT || 5000
+var bodyParser = require("body-parser");
 var morgan = require("morgan");
 var cors = require("cors");
-var bodyParser = require("body-parser");
+
 var app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000
 
 app.get('/', (req, res, next) => {
     console.log("some one get menu");
@@ -25,8 +27,8 @@ app.get('/', (req, res, next) => {
 })
 
 app.post('/signup', (req, res) => {
-    var signemail = req.body.email ;
-    console.log(email) ;
+    var signemail = req.body.email;
+    console.log(signemail);
 
     isFound = false
     for (var i = 0; i < users.length; i++) {
@@ -46,6 +48,39 @@ app.post('/signup', (req, res) => {
 
     console.log(users)
 });
+
+
+
+
+
+
+
+// app.post("/login", (req, res) => {
+
+//     var loginInfo = req.body.email
+
+//     isFound = false
+
+//     for (var i = 0; i = users; i++) {
+//         if (users[i].email === loginInfo) {
+//             isFound === i
+//             break;
+//         }
+//     }
+
+//     if (isFound) {
+//         res.send("incorrect email or password")
+
+//     } else if (users[isFound].password === loginInfo.password) {
+
+//         res.send("congratulation")
+
+//     }
+
+// })
+
+
+
 
 app.listen(3000, () => {
     console.log("server is running on port 3000")
