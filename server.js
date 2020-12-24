@@ -62,9 +62,9 @@ app.post("/login", (req, res) => {
 
     isFound = false
 
-    for (var i = 0; i = users.length; i++) {
+    for (var i = 0; i < users.length; i++) {
         if (users[i].email === loginEmail) {
-            isFound === i
+            isFound = i
             break;
         }
     }
