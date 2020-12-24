@@ -55,29 +55,32 @@ app.post('/signup', (req, res) => {
 
 
 
-// app.post("/login", (req, res) => {
+app.post("/login", (req, res) => {
 
-//     var loginInfo = req.body.email
+    var loginEmail = req.body.email
+    var loginPassword = req.body.password
 
-//     isFound = false
+    isFound = false
 
-//     for (var i = 0; i = users; i++) {
-//         if (users[i].email === loginInfo) {
-//             isFound === i
-//             break;
-//         }
-//     }
+    for (var i = 0; i = users.length; i++) {
+        if (users[i].email === loginEmail) {
+            isFound === i
+            break;
+        }
+    }
 
-//     if (isFound) {
-//         res.send("incorrect email or password")
+    if (isFound === false) {
+        res.send("incorrect email or password")
 
-//     } else if (users[isFound].password === loginInfo.password) {
+    } else if (users[isFound].password === loginPassword) {
 
-//         res.send("congratulation")
+        res.send("congratulation")
 
-//     }
+    }else{
+        res.status(403).send("Password or email invalid")
+    }
 
-// })
+})
 
 
 

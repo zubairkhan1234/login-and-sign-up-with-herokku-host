@@ -23,7 +23,6 @@ function signup() {
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText)
         alert(Http.responseText)
-        // Document.getElementById("result").innerHTML = Http.responseText
     }
 
     return false;
@@ -33,34 +32,24 @@ function signup() {
 
 
 function login() {
-
     var loginUserEmail = document.getElementById("loginEmail").value
     var loginUserPassword = document.getElementById("loginPassword").value
-
-    loginData = (
-        {
-            email:loginUserEmail,
-            password:loginUserPassword
-
-        }
-    )
-
-    document.getElementById("loginEmail"). value = ""
-    document.getElementById("loginPassword"). value = ""
 
     const Http = new XMLHttpRequest();
     const url = 'http://localhost:3000/login';
     Http.open("POST", url);
     Http.setRequestHeader("content-type", "application/json")
-    Http.send(JSON.stringify(loginData));
+    Http.send(JSON.stringify({email:loginUserEmail,password:loginUserPassword}));
 
+    
+    document.getElementById("loginEmail"). value = "";
+    document.getElementById("loginPassword"). value = "";
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText)
         alert(Http.responseText)
         // Document.getElementById("result").innerHTML = Http.responseText
     }
 
-    // console.log(loginData)
 
     return false;
 }
